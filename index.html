@@ -91,6 +91,7 @@
     }
     .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 80% at 65% 45%, black 20%, transparent 80%); opacity: 0.45; }
     .hero-glow { position: absolute; right: -150px; top: 50%; transform: translateY(-55%); width: 680px; height: 680px; background: radial-gradient(circle, rgba(200,245,90,0.065) 0%, transparent 65%); pointer-events: none; }
+    .hero-x { position: absolute; right: -40px; bottom: -60px; font-family: var(--display); font-size: clamp(320px, 38vw, 560px); font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(200,245,90,0.07); pointer-events: none; user-select: none; z-index: 1; letter-spacing: -0.06em; }
     .hero-left { padding: 80px 40px 80px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
     .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); }
     .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
@@ -124,6 +125,16 @@
     .sn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--accent); }
     .st { font-family: var(--display); font-size: clamp(26px, 2.8vw, 40px); font-weight: 700; letter-spacing: -0.025em; color: var(--text); }
     .sl { flex: 1; height: 1px; background: var(--border); max-width: 180px; margin-left: auto; }
+
+    /* ── MANIFESTO STRIP ── */
+    .manifesto { background: var(--accent); padding: 72px 80px; position: relative; overflow: hidden; }
+    .manifesto::before { content: '×'; position: absolute; right: 56px; top: 50%; transform: translateY(-50%); font-family: var(--display); font-size: 280px; font-weight: 800; line-height: 1; color: rgba(10,10,10,0.07); pointer-events: none; letter-spacing: -0.06em; }
+    .manifesto-inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: center; position: relative; }
+    .manifesto-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(10,10,10,0.5); margin-bottom: 20px; }
+    .manifesto-statement { font-family: var(--display); font-size: clamp(36px, 4.5vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.92; color: var(--bg); }
+    .manifesto-statement em { color: rgba(10,10,10,0.35); font-style: normal; }
+    .manifesto-sub { font-family: var(--sans); font-size: 16px; font-weight: 400; color: rgba(10,10,10,0.6); line-height: 1.7; }
+    .manifesto-sub strong { color: var(--bg); font-weight: 500; }
 
     /* ── TRAITS ── */
     #traits { background: var(--bg); }
@@ -191,7 +202,7 @@
     /* ── PROJECTS ── */
     #projects { background: var(--surface); }
     .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .proj-card { background: var(--surface); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.3s; text-decoration: none; display: block; }
+    .proj-card { background: var(--surface); padding: 36px 32px 56px; position: relative; overflow: hidden; transition: background 0.3s; text-decoration: none; display: flex; flex-direction: column; min-height: 320px; }
     .proj-card:hover { background: #141414; }
     .proj-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
     .proj-card:hover::before { transform: scaleX(1); }
@@ -200,8 +211,11 @@
     .ptag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border-light); color: var(--text-muted); }
     .proj-title { font-family: var(--display); font-size: 19px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 12px; transition: color 0.2s; }
     .proj-card:hover .proj-title { color: var(--accent); }
-    .proj-desc { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.65; }
+    .proj-desc { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; }
     .proj-desc strong { color: var(--text-dim); font-weight: 400; }
+    .proj-outcome { display: flex; align-items: baseline; gap: 10px; padding-top: 18px; border-top: 1px solid var(--border); margin-top: auto; }
+    .proj-outcome-n { font-family: var(--display); font-size: 28px; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+    .proj-outcome-l { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
     .proj-arrow { position: absolute; bottom: 24px; right: 24px; font-size: 17px; color: var(--border-light); transition: color 0.2s, transform 0.2s; }
     .proj-card:hover .proj-arrow { color: var(--accent); transform: translate(3px,-3px); }
 
@@ -376,6 +390,12 @@
       .life-tile-title { font-size: 14px; margin-bottom: 4px; }
       .life-tile-desc { font-size: 11px; }
 
+      .manifesto { padding: 48px 20px; }
+      .manifesto::before { display: none; }
+      .manifesto-inner { grid-template-columns: 1fr; gap: 28px; }
+      .manifesto-statement { font-size: clamp(32px, 10vw, 52px); }
+      .proj-outcome { padding-top: 14px; margin-top: 12px; }
+      .proj-outcome-n { font-size: 22px; }
       .contact-heading { font-size: clamp(38px, 11vw, 72px); }
       footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
     }
@@ -430,6 +450,7 @@
 <section id="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+  <div class="hero-x">×</div>
   <div class="hero-left">
     <div class="hero-eyebrow">Building AGI · Maker · TDK SensEI</div>
     <h1 class="hero-name">Pranav<br><span class="hollow">Kanuparthi</span></h1>
@@ -463,9 +484,25 @@
   </div>
 </section>
 
+<!-- MANIFESTO -->
+<div class="manifesto">
+  <div class="manifesto-inner">
+    <div>
+      <div class="manifesto-label">The standard</div>
+      <div class="manifesto-statement">Not 10%<br>better.<br><em>Ten times.</em></div>
+    </div>
+    <p class="manifesto-sub">
+      The moonshot is the <strong>minimum bar</strong>, not the aspiration.
+      Every system I've built starts with the same question: what would it look like
+      to actually solve this — not improve it, not patch it, but make the old approach obsolete?
+      That's the only engineering worth doing.
+    </p>
+  </div>
+</div>
+
 <!-- TRAITS -->
 <section id="traits">
-  <div class="sh"><span class="sn">00</span><h2 class="st">What I Bring</h2><div class="sl"></div></div>
+  <div class="sh"><span class="sn">00</span><h2 class="st">The Thesis</h2><div class="sl"></div></div>
   <p class="traits-intro reveal">
     At my core, I'm a maker. I get a kick out of building things that didn't exist before,
     and I've been doing it since I was 21 when I co-founded a startup and started filing patents.
@@ -630,6 +667,7 @@
       <div class="proj-tags"><span class="ptag">Signal Processing</span><span class="ptag">Pulse Oximetry</span><span class="ptag">Edge</span></div>
       <div class="proj-title">Breathe-right</div>
       <p class="proj-desc">Real-time respiratory monitoring via pulse oximeter. Built for <strong>athletes and COVID-19 patients</strong>: continuous, non-invasive, edge-deployable.</p>
+      <div class="proj-outcome"><span class="proj-outcome-n">Edge</span><span class="proj-outcome-l">No cloud dependency</span></div>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://github.com/CMU-RPCS-21/motor-sensors" target="_blank">
@@ -637,6 +675,7 @@
       <div class="proj-tags"><span class="ptag">Computer Vision</span><span class="ptag">OpenPose</span><span class="ptag">Healthcare</span></div>
       <div class="proj-title">Guardian</div>
       <p class="proj-desc">Camera-based gait analysis for <strong>Huntington's disease patients</strong>. Quantifies chorea progression, turning qualitative clinical observation into trackable data.</p>
+      <div class="proj-outcome"><span class="proj-outcome-n">CV</span><span class="proj-outcome-l">Qualitative → quantitative</span></div>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://github.com/prnvk05/Adversarial-attacks-DNN-18786" target="_blank">
@@ -644,6 +683,7 @@
       <div class="proj-tags"><span class="ptag">ML Security</span><span class="ptag">PyTorch</span><span class="ptag">ResNet</span></div>
       <div class="proj-title">Neural Network Defense</div>
       <p class="proj-desc">Three-stage adversarial defense strategy for image classifiers. <strong>+40% accuracy recovery</strong> on an attacked ResNet-32 under active attack.</p>
+      <div class="proj-outcome"><span class="proj-outcome-n">+40%</span><span class="proj-outcome-l">Accuracy recovered under attack</span></div>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://drive.google.com/file/d/1UrOMwDoZVbhE8t5nRKiBdgVKusVuB-Wq/view?usp=sharing" target="_blank">
@@ -651,6 +691,7 @@
       <div class="proj-tags"><span class="ptag">Distributed ML</span><span class="ptag">Recommender</span><span class="ptag">Pipeline</span></div>
       <div class="proj-title">Related Rhythms</div>
       <p class="proj-desc">Distributed ML pipeline for music recommendation. <strong>End-to-end pipeline design</strong> from audio feature ingestion to ranked personalised output.</p>
+      <div class="proj-outcome"><span class="proj-outcome-n">E2E</span><span class="proj-outcome-l">Ingest to ranked output</span></div>
       <span class="proj-arrow">↗</span>
     </a>
   </div>
