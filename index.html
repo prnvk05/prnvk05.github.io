@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pranav Kanuparthi — ML Engineer & Inventor</title>
-  <meta name="description" content="Senior ML Engineer specialising in agentic AI and industrial intelligence. CES Innovation Award. 5 patents. CMU M.S." />
+  <title>Pranav Kanuparthi | ML Engineer, Maker &amp; Inventor</title>
+  <meta name="description" content="I build things that don't exist yet. Senior ML Engineer, maker, and AGI builder. CES Innovation Award. 5 patents. CMU M.S." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
@@ -48,14 +48,12 @@
     .nav-cta { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 9px 20px; text-decoration: none; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
-    /* Hamburger — hidden on desktop */
     .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; padding: 6px 4px; background: none; border: none; }
     .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); transition: background 0.2s, transform 0.3s, opacity 0.3s; transform-origin: center; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile drawer */
     .nav-drawer {
       display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
       background: rgba(10,10,10,0.97); backdrop-filter: blur(20px);
@@ -165,7 +163,7 @@
     .sg-label { font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     .sg-items { display: flex; flex-direction: column; gap: 7px; }
     .sg-item { font-family: var(--sans); font-size: 13px; font-weight: 300; color: var(--text-dim); padding-left: 14px; position: relative; }
-    .sg-item::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+    .sg-item::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 9px; top: 3px; }
 
     /* ── EXPERIENCE ── */
     #experience { background: var(--bg); }
@@ -181,11 +179,10 @@
     .exp-role small { display: block; font-size: 11px; font-weight: 300; color: var(--text-muted); margin-top: 3px; font-family: var(--mono); letter-spacing: 0.04em; }
     .exp-ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .exp-ul li { font-family: var(--sans); font-size: 13.5px; font-weight: 300; color: var(--text-dim); line-height: 1.65; padding-left: 16px; position: relative; }
-    .exp-ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
+    .exp-ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 9px; top: 4px; }
     .exp-ul li strong { color: var(--text); font-weight: 400; }
     .exp-ul li a { color: var(--accent); text-decoration: none; font-size: 11px; font-family: var(--mono); opacity: 0.8; transition: opacity 0.2s; }
     .exp-ul li a:hover { opacity: 1; }
-    .exp-subrole { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border); }
     .exp-bar { background: var(--border); transition: background 0.3s; }
     .exp-item:hover .exp-bar { background: var(--accent); }
     .impact-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
@@ -262,27 +259,25 @@
     .life-mosaic {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 300px 300px auto;
+      grid-template-rows: 360px 360px auto;
       gap: 3px;
       background: var(--border);
     }
     .life-tile { position: relative; overflow: hidden; background: var(--surface); }
     .life-tile:hover .life-tile-img { transform: scale(1.06); }
     .life-tile:hover .life-tile-overlay { opacity: 1; }
-    .life-tile-1 { grid-column: 1 / 6;  grid-row: 1; }
-    .life-tile-2 { grid-column: 6 / 9;  grid-row: 1; }
-    .life-tile-3 { grid-column: 9 / 13; grid-row: 1; }
-    .life-tile-4 { grid-column: 1 / 5;  grid-row: 2; }
-    .life-tile-5 { grid-column: 5 / 9;  grid-row: 2; }
-    .life-tile-6 { grid-column: 9 / 13; grid-row: 2; }
+    .life-tile-1 { grid-column: 1 / 8;  grid-row: 1; }
+    .life-tile-2 { grid-column: 8 / 13; grid-row: 1; }
+    .life-tile-3 { grid-column: 1 / 6;  grid-row: 2; }
+    .life-tile-4 { grid-column: 6 / 13; grid-row: 2; }
     .life-tile-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); display: block; }
     .life-tile-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--surface); }
     .life-tile-placeholder-icon { font-size: 40px; opacity: 0.3; }
     .life-tile-placeholder-hint { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); opacity: 0.45; }
-    .life-tile-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%); opacity: 0.78; transition: opacity 0.4s; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+    .life-tile-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%); opacity: 0.78; transition: opacity 0.4s; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
     .life-tile-tag { font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
     .life-tile-title { font-family: var(--display); font-size: clamp(16px, 1.6vw, 24px); font-weight: 700; letter-spacing: -0.02em; color: var(--text); line-height: 1.1; margin-bottom: 7px; }
-    .life-tile-desc { font-family: var(--sans); font-size: 12.5px; font-weight: 300; color: rgba(232,228,220,0.7); line-height: 1.55; }
+    .life-tile-desc { font-family: var(--sans); font-size: 12.5px; font-weight: 300; color: rgba(232,228,220,0.7); line-height: 1.55; max-width: 280px; }
     .life-quote-tile { grid-column: 1 / 13; grid-row: 3; background: var(--surface); display: flex; flex-direction: column; justify-content: center; padding: 56px 80px; position: relative; overflow: hidden; border-top: 3px solid var(--accent); }
     .life-quote-tile::before { content: '"'; position: absolute; top: -20px; left: 72px; font-family: var(--display); font-size: 200px; font-weight: 800; color: var(--accent); opacity: 0.04; line-height: 1; pointer-events: none; }
     .life-quote-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -315,7 +310,6 @@
 
     /* ── MOBILE ── */
     @media (max-width: 860px) {
-      /* Nav */
       nav { padding: 0 20px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
@@ -323,7 +317,6 @@
 
       .agi-banner { display: none; }
 
-      /* Hero */
       #hero {
         grid-template-columns: 1fr;
         padding-top: var(--nav-h);
@@ -338,12 +331,10 @@
       .hero-bio { font-size: 14.5px; margin: 16px 0 20px; }
       .hero-tags { margin-bottom: 24px; }
 
-      /* Sections */
       section { padding: 48px 20px; }
       .sh { margin-bottom: 32px; }
       .life-header { padding: 48px 20px 24px; }
 
-      /* Traits — 2-column to halve height */
       .traits-intro { margin-bottom: 36px; font-size: 15px; }
       .traits-grid { grid-template-columns: 1fr 1fr; }
       .trait-card { padding: 24px 18px; }
@@ -351,50 +342,40 @@
       .trait-title { font-size: 16px; }
       .trait-desc { font-size: 12px; }
 
-      /* Skills */
       .skills-grid { grid-template-columns: 1fr 1fr; }
 
-      /* Experience */
       .exp-item { grid-template-columns: 1fr; }
       .exp-co { border-right: none; border-bottom: 1px solid var(--border); padding: 18px 20px; }
       .exp-bar { display: none; }
       .exp-body { padding: 18px 20px; }
       .exp-ul li { font-size: 13px; }
 
-      /* Projects */
       .proj-grid { grid-template-columns: 1fr; }
       .proj-card { padding: 24px 20px; }
 
-      /* Education */
       .edu-grid { grid-template-columns: 1fr; }
       .edu-card { padding: 24px 20px; }
 
-      /* Patents */
       .patents-cols { grid-template-columns: 1fr; gap: 24px; }
 
-      /* Credentials */
       .cred-grid { grid-template-columns: 1fr 1fr; }
 
-      /* Life mosaic — 2-column grid cuts height by ~half */
       .life-mosaic {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 190px 190px 190px auto;
+        grid-template-rows: 240px 240px auto;
         gap: 3px;
       }
       .life-tile-1 { grid-column: 1 / 2; grid-row: 1; }
       .life-tile-2 { grid-column: 2 / 3; grid-row: 1; }
       .life-tile-3 { grid-column: 1 / 2; grid-row: 2; }
       .life-tile-4 { grid-column: 2 / 3; grid-row: 2; }
-      .life-tile-5 { grid-column: 1 / 2; grid-row: 3; }
-      .life-tile-6 { grid-column: 2 / 3; grid-row: 3; }
-      .life-quote-tile { grid-column: 1 / 3; grid-row: 4; padding: 32px 20px; }
+      .life-quote-tile { grid-column: 1 / 3; grid-row: 3; padding: 32px 20px; }
       .life-quote-inner { grid-template-columns: 1fr; gap: 16px; }
       .life-tile-overlay { padding: 14px; }
       .life-tile-tag { font-size: 8px; margin-bottom: 4px; }
       .life-tile-title { font-size: 14px; margin-bottom: 4px; }
       .life-tile-desc { font-size: 11px; }
 
-      /* Contact / footer */
       .contact-heading { font-size: clamp(38px, 11vw, 72px); }
       footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
     }
@@ -406,7 +387,7 @@
       .hero-actions { flex-direction: column; align-items: flex-start; gap: 20px; }
       .life-mosaic {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 160px 160px 160px auto;
+        grid-template-rows: 180px 180px auto;
       }
     }
   </style>
@@ -431,7 +412,6 @@
   </div>
 </nav>
 
-<!-- Mobile nav drawer -->
 <nav class="nav-drawer" id="navDrawer">
   <a href="#traits" onclick="closeDrawer()">About</a>
   <a href="#experience" onclick="closeDrawer()">Experience</a>
@@ -442,7 +422,6 @@
   <a href="https://drive.google.com/file/d/1uS7PuvZ6ZcvtGFDEi8jyIaxUTA9T_DV6/view?usp=sharing" target="_blank">Resume ↗</a>
 </nav>
 
-<!-- AGI MISSION BANNER -->
 <div class="agi-banner">
   <div class="agi-banner-track" id="agiBannerTrack"></div>
 </div>
@@ -452,20 +431,21 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-left">
-    <div class="hero-eyebrow">Building AGI · TDK SensEI · Pittsburgh</div>
+    <div class="hero-eyebrow">Building AGI · Maker · TDK SensEI</div>
     <h1 class="hero-name">Pranav<br><span class="hollow">Kanuparthi</span></h1>
     <p class="hero-bio">
-      My mission is <strong>building AGI</strong> — intelligent systems that don't just predict,
-      but understand, act, and collaborate with humans to solve the world's hardest problems.
-      Right now: agentic AI and industrial intelligence at TDK SensEI,
-      where <strong>sensor signals become autonomous decisions</strong> at the edge.
+      I'm a maker at heart. I build things that don't exist yet, whether that's
+      a patented sensor platform, a multi-agent AI system, or a new way to think
+      about a problem. My mission is <strong>building AGI</strong>: intelligent systems
+      that don't just predict, but understand, act, and work alongside people
+      to solve things that actually matter.
     </p>
     <div class="hero-tags">
+      <span class="htag hi">Maker</span>
       <span class="htag hi">Agentic AI</span>
       <span class="htag hi">Industrial ML</span>
       <span class="htag">Edge AI</span>
       <span class="htag">Sensing Systems</span>
-      <span class="htag">AWS Bedrock</span>
       <span class="htag">LangChain · LangGraph</span>
     </div>
     <div class="hero-actions">
@@ -487,46 +467,46 @@
 <section id="traits">
   <div class="sh"><span class="sn">00</span><h2 class="st">What I Bring</h2><div class="sl"></div></div>
   <p class="traits-intro reveal">
-    I'm at my best when the problem is <strong>half-defined, the stakes are real, and nobody's built it before.</strong>
-    From co-founding a CES Award-winning hardware-AI startup to leading multi-agent AI systems at TDK SensEI,
-    the thread is always the same: figure it out fast, build something that works, then make it excellent.
+    At my core, I'm a maker. I get a kick out of building things that didn't exist before,
+    and I've been doing it since I was 21 when I co-founded a startup and started filing patents.
+    <strong>The best version of any problem is the one where you have to invent the solution.</strong>
   </p>
   <div class="traits-grid">
     <div class="trait-card reveal">
+      <span class="trait-icon">🛠️</span>
+      <div class="trait-label">Identity</div>
+      <div class="trait-title">Builder First, Engineer Second</div>
+      <p class="trait-desc">I've built sensor platforms, filed patents, shipped production AI systems, and co-founded a company. The title changes but the instinct doesn't: <em>if it doesn't exist, build it.</em></p>
+    </div>
+    <div class="trait-card reveal">
       <span class="trait-icon">🧭</span>
       <div class="trait-label">Mindset</div>
-      <div class="trait-title">Navigates Ambiguity with Confidence</div>
-      <p class="trait-desc">Comfortable where requirements are fuzzy and the path undefined. I've shipped products, filed patents, and run novel research — <em>in domains where there was no playbook.</em></p>
+      <div class="trait-title">Comfortable in the Fog</div>
+      <p class="trait-desc">Fuzzy requirements, undefined paths, no precedent. That's where I do my best work. I've shipped products and run research in spaces where <em>the playbook didn't exist yet.</em></p>
     </div>
     <div class="trait-card reveal">
       <span class="trait-icon">⚡</span>
       <div class="trait-label">Speed</div>
-      <div class="trait-title">Rapid Prototyper</div>
-      <p class="trait-desc">From idea to working demo fast — multi-agent fault detection systems, neuromorphic architectures, adversarial defenses. <em>I build first, then iterate to rigour.</em></p>
+      <div class="trait-title">Idea to Working Demo, Fast</div>
+      <p class="trait-desc">I don't spend weeks planning before touching a keyboard. Multi-agent fault detection, neuromorphic architectures, adversarial defenses. <em>Build first, then make it excellent.</em></p>
     </div>
     <div class="trait-card reveal">
       <span class="trait-icon">🔬</span>
       <div class="trait-label">Thinking</div>
       <div class="trait-title">First-Principles Engineer</div>
-      <p class="trait-desc">When existing approaches fail, I design new ones. Hierarchical agent architectures, temporal neural networks — <em>five patents aren't a hobby, they're a habit.</em></p>
+      <p class="trait-desc">When existing approaches don't cut it, I design new ones. Hierarchical agent architectures, temporal neural networks. <em>Five patents aren't a hobby, they're a habit.</em></p>
     </div>
     <div class="trait-card reveal">
       <span class="trait-icon">🧱</span>
       <div class="trait-label">Range</div>
-      <div class="trait-title">Full-Stack ML Builder</div>
-      <p class="trait-desc">Raw sensor hardware → signal processing → model architecture → cloud deployment. <em>No handoff required</em> between research and production.</p>
+      <div class="trait-title">Full Stack, No Excuses</div>
+      <p class="trait-desc">I go from raw sensor hardware through signal processing, model architecture, and cloud deployment without needing a handoff. <em>Knowing the whole chain makes every layer better.</em></p>
     </div>
     <div class="trait-card reveal">
       <span class="trait-icon">🎯</span>
       <div class="trait-label">Drive</div>
-      <div class="trait-title">Mission-Oriented, Not Task-Oriented</div>
-      <p class="trait-desc">One consistent question across 9 years: <em>how do we make machines that truly understand their environment?</em> Hard problems. Real stakes. Always.</p>
-    </div>
-    <div class="trait-card reveal">
-      <span class="trait-icon">🤝</span>
-      <div class="trait-label">Leadership</div>
-      <div class="trait-title">Builder of Teams and Culture</div>
-      <p class="trait-desc">Cross-functional delivery across engineering, data, QA and product. Presented to executive leadership. Mentored engineers. <em>Momentum, not just output.</em></p>
+      <div class="trait-title">Here for the Mission</div>
+      <p class="trait-desc">Nine years, one thread: making machines that genuinely understand their environment. I'm not chasing roles or titles. <em>I'm working toward something specific.</em></p>
     </div>
   </div>
   <div class="stack-wrap">
@@ -549,7 +529,7 @@
       </div>
     </div>
     <div class="skill-group reveal">
-      <div class="sg-label">Frameworks & Tools</div>
+      <div class="sg-label">Frameworks &amp; Tools</div>
       <div class="sg-items">
         <div class="sg-item">PyTorch · TensorFlow · Keras</div>
         <div class="sg-item">LangChain · LangGraph</div>
@@ -558,7 +538,7 @@
       </div>
     </div>
     <div class="skill-group reveal">
-      <div class="sg-label">Cloud & Infrastructure</div>
+      <div class="sg-label">Cloud &amp; Infrastructure</div>
       <div class="sg-items">
         <div class="sg-item">AWS Bedrock</div>
         <div class="sg-item">Lambda · S3 · DynamoDB</div>
@@ -590,7 +570,7 @@
       <div class="exp-body">
         <div class="exp-role">Senior Machine Learning Engineer<small>Sep 2021 – Present</small></div>
         <ul class="exp-ul">
-          <li>Architected and led development of a <strong>production-ready multi-agent AI system</strong> for industrial asset diagnostics — three-agent hierarchical architecture using AWS Bedrock, LangChain, and LangGraph for real-time fault detection in rotating equipment.</li>
+          <li>Architected and led development of a <strong>production-ready multi-agent AI system</strong> for industrial asset diagnostics: three-agent hierarchical architecture using AWS Bedrock, LangChain, and LangGraph for real-time fault detection in rotating equipment.</li>
           <li>Eliminated approximately <strong>$20M in annual downtime losses</strong> for large manufacturing clients; improved data pipeline efficiency by <strong>62% memory reduction and 20% latency improvement</strong>.</li>
           <li>Developed automated clustering validation and gating mechanism for CBM_ML platform, eliminating manual review and improving model accuracy, deployment speed, and labeling efficiency across equipment types.</li>
           <li>Drove cross-functional delivery across engineering, data, QA, and product; presented technical roadmap and architecture decisions to <strong>executive leadership</strong>.</li>
@@ -629,9 +609,9 @@
         <div class="exp-co-period">Oct 2018 – Jan 2020<br>Bangalore, India</div>
       </div>
       <div class="exp-body">
-        <div class="exp-role">Co-Founder & Chief Innovation Officer<small>Oct 2018 – Jan 2020</small></div>
+        <div class="exp-role">Co-Founder &amp; Chief Innovation Officer<small>Oct 2018 – Jan 2020</small></div>
         <ul class="exp-ul">
-          <li>Built <strong>YogiFi</strong> — a CES Innovation Award-winning, patented AI + pressure sensor platform for real-time yoga pose classification and personalised guidance. Led a twelve-member cross-functional team.</li>
+          <li>Built <strong>YogiFi</strong>, a CES Innovation Award-winning patented AI and pressure sensor platform for real-time yoga pose classification and personalised guidance. Led a twelve-member cross-functional team.</li>
           <li>Engineered CNN on pressure matrix data achieving <strong>98% pose classification accuracy</strong>; technology underpins 3 granted patents.</li>
         </ul>
       </div>
@@ -646,31 +626,31 @@
   <div class="sh"><span class="sn">03</span><h2 class="st">Projects</h2><div class="sl"></div></div>
   <div class="proj-grid">
     <a class="proj-card reveal" href="https://github.com/prnvk05/CMU-17722-Project-Breatheright" target="_blank">
-      <div class="proj-num">P — 01</div>
+      <div class="proj-num">P / 01</div>
       <div class="proj-tags"><span class="ptag">Signal Processing</span><span class="ptag">Pulse Oximetry</span><span class="ptag">Edge</span></div>
       <div class="proj-title">Breathe-right</div>
-      <p class="proj-desc">Real-time respiratory monitoring via pulse oximeter. Built for <strong>athletes and COVID-19 patients</strong> — continuous, non-invasive, edge-deployable.</p>
+      <p class="proj-desc">Real-time respiratory monitoring via pulse oximeter. Built for <strong>athletes and COVID-19 patients</strong>: continuous, non-invasive, edge-deployable.</p>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://github.com/CMU-RPCS-21/motor-sensors" target="_blank">
-      <div class="proj-num">P — 02</div>
+      <div class="proj-num">P / 02</div>
       <div class="proj-tags"><span class="ptag">Computer Vision</span><span class="ptag">OpenPose</span><span class="ptag">Healthcare</span></div>
       <div class="proj-title">Guardian</div>
-      <p class="proj-desc">Camera-based gait analysis for <strong>Huntington's disease patients</strong>. Quantifies chorea progression — turning qualitative clinical observation into trackable data.</p>
+      <p class="proj-desc">Camera-based gait analysis for <strong>Huntington's disease patients</strong>. Quantifies chorea progression, turning qualitative clinical observation into trackable data.</p>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://github.com/prnvk05/Adversarial-attacks-DNN-18786" target="_blank">
-      <div class="proj-num">P — 03</div>
+      <div class="proj-num">P / 03</div>
       <div class="proj-tags"><span class="ptag">ML Security</span><span class="ptag">PyTorch</span><span class="ptag">ResNet</span></div>
       <div class="proj-title">Neural Network Defense</div>
       <p class="proj-desc">Three-stage adversarial defense strategy for image classifiers. <strong>+40% accuracy recovery</strong> on an attacked ResNet-32 under active attack.</p>
       <span class="proj-arrow">↗</span>
     </a>
     <a class="proj-card reveal" href="https://drive.google.com/file/d/1UrOMwDoZVbhE8t5nRKiBdgVKusVuB-Wq/view?usp=sharing" target="_blank">
-      <div class="proj-num">P — 04</div>
+      <div class="proj-num">P / 04</div>
       <div class="proj-tags"><span class="ptag">Distributed ML</span><span class="ptag">Recommender</span><span class="ptag">Pipeline</span></div>
       <div class="proj-title">Related Rhythms</div>
-      <p class="proj-desc">Distributed ML pipeline for music recommendation. <strong>End-to-end pipeline design</strong> — from audio feature ingestion to ranked personalised output.</p>
+      <p class="proj-desc">Distributed ML pipeline for music recommendation. <strong>End-to-end pipeline design</strong> from audio feature ingestion to ranked personalised output.</p>
       <span class="proj-arrow">↗</span>
     </a>
   </div>
@@ -678,7 +658,7 @@
 
 <!-- PATENTS -->
 <section id="patents">
-  <div class="sh"><span class="sn">04</span><h2 class="st">Patents & Publications</h2><div class="sl"></div></div>
+  <div class="sh"><span class="sn">04</span><h2 class="st">Patents &amp; Publications</h2><div class="sl"></div></div>
   <div class="patents-cols">
     <div>
       <div class="col-label">Patents</div>
@@ -691,7 +671,7 @@
       </div>
     </div>
     <div>
-      <div class="col-label">Talks & Publications</div>
+      <div class="col-label">Talks &amp; Publications</div>
       <div class="pub-rows">
         <div class="pub-card reveal">
           <div class="pub-t">Embedded ML for Industrial IoT Applications</div>
@@ -700,7 +680,7 @@
         </div>
         <div class="pub-card reveal">
           <div class="pub-t">The Changing Nature of Human Adjudication</div>
-          <div class="pub-v">ITSMTGPD 2019 — IEEE Technology and Society Magazine</div>
+          <div class="pub-v">ITSMTGPD 2019 · IEEE Technology and Society Magazine</div>
         </div>
       </div>
     </div>
@@ -730,11 +710,11 @@
 <section id="credentials">
   <div class="sh"><span class="sn">06</span><h2 class="st">Credentials</h2><div class="sl"></div></div>
   <div class="cred-grid">
-    <div class="cred-card reveal"><div class="cred-issuer">CES</div><div class="cred-title">Innovation Award — YogiFi</div><div class="cred-date">Consumer Electronics Show</div></div>
+    <div class="cred-card reveal"><div class="cred-issuer">CES</div><div class="cred-title">Innovation Award: YogiFi</div><div class="cred-date">Consumer Electronics Show</div></div>
     <div class="cred-card reveal"><div class="cred-issuer">Udacity</div><div class="cred-title">Deep Learning Nanodegree</div><div class="cred-date">Oct 2017</div></div>
     <div class="cred-card reveal"><div class="cred-issuer">DataCamp</div><div class="cred-title">Machine Learning with Python</div><div class="cred-date">Sep 2017</div></div>
     <div class="cred-card reveal"><div class="cred-issuer">DataCamp</div><div class="cred-title">Data Manipulation with Python</div><div class="cred-date">Sep 2017</div></div>
-    <div class="cred-card reveal"><div class="cred-issuer">DataCamp</div><div class="cred-title">Importing & Cleaning Data</div><div class="cred-date">Sep 2017</div></div>
+    <div class="cred-card reveal"><div class="cred-issuer">DataCamp</div><div class="cred-title">Importing &amp; Cleaning Data</div><div class="cred-date">Sep 2017</div></div>
     <div class="cred-card reveal"><div class="cred-issuer">US Sailing</div><div class="cred-title">Small Boat Sailor</div><div class="cred-date">Jul 2025</div></div>
   </div>
 </section>
@@ -757,7 +737,7 @@
       <div class="life-tile-overlay">
         <div class="life-tile-tag">On the water</div>
         <div class="life-tile-title">Certified Sailor</div>
-        <div class="life-tile-desc">US Sailing certified. Reading wind and water scratches the same itch as debugging a model — pure systems thinking, no safety net.</div>
+        <div class="life-tile-desc">US Sailing certified. There's something about reading wind, water, and weather in real time that scratches the same itch as a hard engineering problem. No undo button.</div>
       </div>
     </div>
 
@@ -767,9 +747,9 @@
         <span class="life-tile-placeholder-hint">Add your motorsport photo</span>
       </div>
       <div class="life-tile-overlay">
-        <div class="life-tile-tag">Speed & precision</div>
+        <div class="life-tile-tag">Speed and engineering</div>
         <div class="life-tile-title">Motorsport</div>
-        <div class="life-tile-desc">Machines at the edge of their limits. The engineering is half the attraction.</div>
+        <div class="life-tile-desc">Machines pushed to their limits. Half the fascination is the engineering underneath.</div>
       </div>
     </div>
 
@@ -779,9 +759,9 @@
         <span class="life-tile-placeholder-hint">Add your clays photo</span>
       </div>
       <div class="life-tile-overlay">
-        <div class="life-tile-tag">Focus & timing</div>
+        <div class="life-tile-tag">Focus and timing</div>
         <div class="life-tile-title">Sporting Clays</div>
-        <div class="life-tile-desc">Every target is a different problem. Fast pattern recognition, total presence — no room for distraction.</div>
+        <div class="life-tile-desc">Every target is a slightly different problem. You can't fake preparation and you can't think too much. Total presence, every time.</div>
       </div>
     </div>
 
@@ -791,47 +771,23 @@
         <span class="life-tile-placeholder-hint">Add your boxing photo</span>
       </div>
       <div class="life-tile-overlay">
-        <div class="life-tile-tag">Physical discipline</div>
+        <div class="life-tile-tag">Discipline and craft</div>
         <div class="life-tile-title">Boxing</div>
-        <div class="life-tile-desc">Footwork, timing, controlled aggression. The sport that rewards preparation more than almost any other.</div>
-      </div>
-    </div>
-
-    <div class="life-tile life-tile-5">
-      <div class="life-tile-placeholder">
-        <span class="life-tile-placeholder-icon">🎮</span>
-        <span class="life-tile-placeholder-hint">Add your gaming photo</span>
-      </div>
-      <div class="life-tile-overlay">
-        <div class="life-tile-tag">Strategy & reflex</div>
-        <div class="life-tile-title">Gaming</div>
-        <div class="life-tile-desc">Competitive at heart. Pattern recognition, fast decisions under pressure — good practice for production ML.</div>
-      </div>
-    </div>
-
-    <div class="life-tile life-tile-6">
-      <div class="life-tile-placeholder">
-        <span class="life-tile-placeholder-icon">📚</span>
-        <span class="life-tile-placeholder-hint">Add your photo</span>
-      </div>
-      <div class="life-tile-overlay">
-        <div class="life-tile-tag">Always learning</div>
-        <div class="life-tile-title">Reading</div>
-        <div class="life-tile-desc">Across tech, history, and whatever's next. Curiosity isn't a trait — it's a practice.</div>
+        <div class="life-tile-desc">Footwork, timing, controlled aggression under pressure. The gym teaches you that preparation isn't optional: it's the whole game.</div>
       </div>
     </div>
 
     <div class="life-quote-tile">
       <div class="life-quote-inner">
         <div class="life-quote-text">
-          The best engineers aren't defined<br>
-          by their stack.<br>
-          They're defined by their <em>range.</em>
+          I make things.<br>
+          In the lab, on the water,<br>
+          in the ring, <em>everywhere.</em>
         </div>
         <p class="life-quote-sub">
-          On the water, on the range, trackside, or in a game — the same instincts show up everywhere:
-          <strong>read the situation fast, commit fully, and execute cleanly.</strong>
-          A full life makes for a sharper engineer.
+          The same instinct that makes me build software also puts me on a sailboat or at a shooting range.
+          <strong>A maker doesn't switch off. They just find new problems to solve.</strong>
+          I think that's what makes the work good.
         </p>
       </div>
     </div>
@@ -844,7 +800,7 @@
   <div class="contact-glow"></div>
   <div class="contact-pre">Open to the right problem</div>
   <h2 class="contact-heading">Let's build<br>something<br><span class="ghost">10x.</span></h2>
-  <p class="contact-copy">I'm looking for senior ML / agentic AI roles where the problem is hard, the stakes are real, and the solution doesn't exist yet. If that's what you're building — let's talk.</p>
+  <p class="contact-copy">I'm looking for senior ML and agentic AI roles where the problem is hard, the stakes are real, and the solution doesn't exist yet. If that's what you're building, let's talk.</p>
   <div class="contact-links">
     <a href="#" data-email class="cl"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Email</a>
     <a href="https://www.linkedin.com/in/pranavkanuparthi/" class="cl" target="_blank"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>LinkedIn</a>
@@ -860,7 +816,6 @@
 </footer>
 
 <script>
-  // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const navDrawer = document.getElementById('navDrawer');
   hamburger.addEventListener('click', () => {
@@ -871,18 +826,16 @@
     navDrawer.classList.remove('open');
     hamburger.classList.remove('open');
   }
-  // Close drawer on outside click
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navDrawer.contains(e.target)) {
       closeDrawer();
     }
   });
 
-  // AGI mission banner
   const agiMessages = [
     'Mission: Build AGI',
     'Intelligent systems that understand, act & collaborate',
-    'From sensor to decision — autonomously',
+    'From sensor to decision, autonomously',
     'Agentic AI · Industrial Intelligence · Edge ML',
     'Turning ambiguous problems into deployed systems',
     'The physical world deserves intelligent agents too',
@@ -895,7 +848,6 @@
     agiBanner.appendChild(el);
   });
 
-  // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 65); obs.unobserve(e.target); }
@@ -903,7 +855,6 @@
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Email — assembled at runtime to deter scrapers
   const _eu = 'pranavkanuparthi', _ed = 'gmail.com';
   document.querySelectorAll('[data-email]').forEach(el => {
     const addr = _eu + '@' + _ed;
@@ -911,7 +862,6 @@
     if (el.classList.contains('contact-email')) el.textContent = addr;
   });
 
-  // Stack marquee
   const stack = ['PyTorch','TensorFlow','Keras','LangChain','LangGraph','AWS Bedrock','Python','C/C++','SQL','PySpark','Docker','Signal Processing','Agentic AI','Edge ML','Neuromorphic Computing','Computer Vision','Anomaly Detection','Sensor Fusion','AWS Lambda','Scikit-Learn'];
   const track = document.getElementById('stackTrack');
   [...stack, ...stack].forEach(s => {
