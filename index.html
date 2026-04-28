@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranav Kanuparthi — ML Engineer, Maker & Inventor</title>
+<title>Pranav Kanuparthi — ML Engineer, Maker &amp; Inventor</title>
+<meta name="description" content="I build things that don't exist yet. Senior ML Engineer, maker, and AGI builder. CES Innovation Award. 5 patents. CMU M.S." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -22,11 +23,13 @@
     --amber2: #ff4d2e;
     --amber-glow: rgba(255, 40, 0, 0.08);
     --amber-line: rgba(255, 40, 0, 0.3);
-    --copper: #0096FF;
     --grid: rgba(0,0,0,0.04);
     --blue: #0096FF;
     --blue-glow: rgba(0,150,255,0.08);
     --blue-line: rgba(0,150,255,0.3);
+    --green: #00d46a;
+    --green-glow: rgba(0, 200, 100, 0.12);
+    --green-line: rgba(0, 200, 100, 0.35);
     --font-display: 'Syne', sans-serif;
     --font-mono: 'Space Mono', monospace;
     --font-body: 'DM Sans', sans-serif;
@@ -43,19 +46,6 @@
     font-size: 16px;
     line-height: 1.7;
     overflow-x: hidden;
-  }
-
-  /* Grid texture background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-    z-index: 0;
   }
 
   /* ── NAV ── */
@@ -98,6 +88,8 @@
 
   .nav-links a:hover { color: var(--amber); }
 
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
   .nav-resume {
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -110,9 +102,48 @@
     transition: all 0.2s;
   }
 
-  .nav-resume:hover {
-    background: var(--amber-glow);
+  .nav-resume:hover { background: var(--amber-glow); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px 4px;
+    background: none;
+    border: none;
   }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--faint); transition: transform 0.3s, opacity 0.3s; transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 61px; left: 0; right: 0;
+    background: rgba(245,242,237,0.97);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    z-index: 98;
+    padding: 1rem 1.5rem 1.5rem;
+    flex-direction: column;
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: color 0.2s;
+  }
+  .nav-drawer a:last-child { border-bottom: none; }
+  .nav-drawer a:hover { color: var(--amber); }
 
   /* ── HERO ── */
   #hero {
@@ -124,6 +155,11 @@
     padding: 8rem 3rem 4rem;
     overflow: hidden;
     z-index: 1;
+    background-color: var(--black);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
   .hero-label {
@@ -156,9 +192,7 @@
     margin-bottom: 1.5rem;
   }
 
-  h1.hero-name span {
-    color: var(--amber);
-  }
+  h1.hero-name span { color: var(--amber); }
 
   .hero-desc {
     max-width: 560px;
@@ -180,7 +214,7 @@
     font-family: var(--font-mono);
     font-size: 0.68rem;
     color: var(--faint);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.12);
     padding: 0.3rem 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -193,11 +227,7 @@
     margin-bottom: 3rem;
   }
 
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
+  .stat { display: flex; flex-direction: column; gap: 0.25rem; }
 
   .stat-num {
     font-family: var(--font-display);
@@ -215,23 +245,21 @@
     letter-spacing: 0.1em;
   }
 
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-  }
+  .hero-ctas { display: flex; gap: 1rem; }
 
   .btn-primary {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--black);
+    color: #ffffff;
     background: var(--amber);
     border: none;
     padding: 0.85rem 2rem;
     text-decoration: none;
     transition: all 0.2s;
     display: inline-block;
+    cursor: pointer;
   }
 
   .btn-primary:hover { background: var(--amber2); }
@@ -243,7 +271,7 @@
     text-transform: uppercase;
     color: var(--white);
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.15);
     padding: 0.85rem 2rem;
     text-decoration: none;
     transition: all 0.2s;
@@ -283,10 +311,7 @@
   }
 
   /* ── SECTIONS ── */
-  section {
-    position: relative;
-    z-index: 1;
-  }
+  section { position: relative; z-index: 1; }
 
   .section-inner {
     max-width: 1100px;
@@ -322,17 +347,10 @@
     color: var(--white);
   }
 
-  /* Divider line */
-  .divider {
-    border: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    margin: 0;
-  }
+  .divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 0; }
 
   /* ── THESIS ── */
-  #thesis {
-    background: var(--dark);
-  }
+  #thesis { background: var(--dark); }
 
   .thesis-grid {
     display: grid;
@@ -373,15 +391,9 @@
     transition: border-color 0.2s;
   }
 
-  .trait-card:hover {
-    border-color: var(--amber-line);
-  }
+  .trait-card:hover { border-color: var(--amber-line); }
 
-  .trait-icon {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
+  .trait-icon { font-size: 1.25rem; margin-bottom: 0.5rem; display: block; }
 
   .trait-title {
     font-family: var(--font-display);
@@ -391,17 +403,10 @@
     margin-bottom: 0.25rem;
   }
 
-  .trait-sub {
-    font-size: 0.75rem;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.5;
-  }
+  .trait-sub { font-size: 0.75rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
 
   /* ── EXPERIENCE ── */
-  #experience {
-    background: var(--black);
-  }
+  #experience { background: var(--black); }
 
   .exp-item {
     display: grid;
@@ -411,15 +416,9 @@
     border-top: 1px solid rgba(0,0,0,0.08);
   }
 
-  .exp-item:last-child {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
+  .exp-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
 
-  .exp-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+  .exp-meta { display: flex; flex-direction: column; gap: 0.4rem; }
 
   .exp-company {
     font-family: var(--font-display);
@@ -456,7 +455,12 @@
     width: fit-content;
   }
 
-  .exp-content {}
+  .exp-badge.green {
+    margin-top: 0.35rem;
+    background: var(--green-glow);
+    color: var(--green);
+    border-color: var(--green-line);
+  }
 
   .exp-role {
     font-family: var(--font-display);
@@ -483,12 +487,12 @@
   }
 
   .exp-bullets li::before {
-    content: '—';
+    content: '▸';
     position: absolute;
     left: 0;
     color: var(--amber);
-    font-size: 0.7rem;
-    top: 0.1rem;
+    font-size: 0.6rem;
+    top: 0.25rem;
   }
 
   .exp-metrics {
@@ -509,9 +513,7 @@
   }
 
   /* ── PROJECTS ── */
-  #projects {
-    background: var(--dark);
-  }
+  #projects { background: var(--dark); }
 
   .projects-grid {
     display: grid;
@@ -530,9 +532,7 @@
     display: block;
   }
 
-  .project-card:hover {
-    background: var(--dark2);
-  }
+  .project-card:hover { background: var(--dark2); }
 
   .project-card::before {
     content: '';
@@ -545,9 +545,7 @@
     transition: transform 0.3s;
   }
 
-  .project-card:hover::before {
-    transform: scaleX(1);
-  }
+  .project-card:hover::before { transform: scaleX(1); }
 
   .project-num {
     font-family: var(--font-mono);
@@ -573,11 +571,7 @@
     margin-bottom: 1.25rem;
   }
 
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
   .project-tag {
     font-family: var(--font-mono);
@@ -606,15 +600,10 @@
     transition: color 0.2s, transform 0.2s;
   }
 
-  .project-card:hover .project-arrow {
-    color: var(--amber);
-    transform: translate(3px, -3px);
-  }
+  .project-card:hover .project-arrow { color: var(--amber); transform: translate(3px, -3px); }
 
   /* ── PATENTS ── */
-  #patents {
-    background: var(--black);
-  }
+  #patents { background: var(--black); }
 
   .patents-layout {
     display: grid;
@@ -623,10 +612,7 @@
     align-items: start;
   }
 
-  .patents-count {
-    position: sticky;
-    top: 8rem;
-  }
+  .patents-count { position: sticky; top: 8rem; }
 
   .patents-big-num {
     font-family: var(--font-display);
@@ -646,11 +632,10 @@
     margin-top: 0.5rem;
   }
 
-  .patent-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .patents-granted-label { margin-top: 1rem; color: var(--green); font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; }
+  .patents-pending-label { margin-top: 0.25rem; color: var(--amber); font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; }
+
+  .patent-list { display: flex; flex-direction: column; gap: 0; }
 
   .patent-item {
     padding: 1.5rem 0;
@@ -661,9 +646,8 @@
     align-items: start;
   }
 
-  .patent-item:last-child {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-  }
+  .patent-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .patent-item.talk-row { border-top-color: var(--amber-line); }
 
   .patent-status {
     font-family: var(--font-mono);
@@ -676,15 +660,22 @@
   }
 
   .patent-status.granted {
-    background: rgba(0, 200, 100, 0.12);
-    color: #00d46a;
-    border: 1px solid rgba(0,200,100,0.35);
+    background: var(--green-glow);
+    color: var(--green);
+    border: 1px solid var(--green-line);
   }
 
   .patent-status.pending {
-    background: rgba(212,136,10,0.1);
+    background: var(--amber-glow);
     color: var(--amber);
     border: 1px solid var(--amber-line);
+  }
+
+  .patent-status.talk,
+  .patent-status.paper {
+    background: rgba(0,0,0,0.04);
+    color: var(--faint);
+    border: 1px solid rgba(0,0,0,0.1);
   }
 
   .patent-title {
@@ -702,22 +693,15 @@
     letter-spacing: 0.03em;
   }
 
+  .patent-num a { color: var(--amber); text-decoration: none; }
+  .patent-num a:hover { text-decoration: underline; }
+
   /* ── LIFE ── */
-  #life {
-    background: var(--dark);
-  }
+  #life { background: var(--dark); }
 
-  .life-intro {
-    max-width: 600px;
-    margin-bottom: 3rem;
-  }
+  .life-intro { max-width: 600px; margin-bottom: 3rem; }
 
-  .life-body {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--light);
-    line-height: 1.9;
-  }
+  .life-body { font-size: 0.95rem; font-weight: 300; color: var(--light); line-height: 1.9; }
 
   .life-grid {
     display: grid;
@@ -734,12 +718,7 @@
     overflow: hidden;
   }
 
-  .life-card-icon {
-    font-size: 2rem;
-    margin-bottom: 1.25rem;
-    display: block;
-    opacity: 0.85;
-  }
+  .life-card-icon { font-size: 2rem; margin-bottom: 1.25rem; display: block; opacity: 0.85; }
 
   .life-card-title {
     font-family: var(--font-display);
@@ -758,21 +737,15 @@
     margin-bottom: 0.75rem;
   }
 
-  .life-card-desc {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.7;
-  }
+  .life-card-desc { font-size: 0.85rem; font-weight: 300; color: var(--muted); line-height: 1.7; }
 
   .life-card-num {
     position: absolute;
-    bottom: 1.5rem;
-    right: 1.75rem;
+    bottom: 1.5rem; right: 1.75rem;
     font-family: var(--font-display);
     font-size: 4rem;
     font-weight: 800;
-    color: rgba(255,255,255,0.03);
+    color: rgba(0,0,0,0.04);
     line-height: 1;
     pointer-events: none;
   }
@@ -789,7 +762,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(212,136,10,0.05) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, var(--amber-glow) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -802,31 +775,23 @@
     margin-bottom: 1rem;
   }
 
-  .manifesto-text em {
-    color: var(--amber);
-    font-style: normal;
-  }
+  .manifesto-text em { color: var(--amber); font-style: normal; }
 
   .manifesto-sub {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 0.05em;
-    font-weight: 400;
   }
 
   /* ── SKILLS ── */
-  #skills {
-    background: var(--black);
-  }
+  #skills { background: var(--black); }
 
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
-
-  .skill-group {}
 
   .skill-group-title {
     font-family: var(--font-mono);
@@ -836,15 +801,10 @@
     letter-spacing: 0.15em;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(212,136,10,0.25);
+    border-bottom: 1px solid var(--amber-line);
   }
 
-  .skill-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
 
   .skill-list li {
     font-size: 0.82rem;
@@ -854,16 +814,15 @@
     position: relative;
   }
 
-  .skill-list li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--amber);
-  }
+  .skill-list li::before { content: '·'; position: absolute; left: 0; color: var(--amber); }
 
   /* ── CONTACT ── */
   #contact {
-    background: var(--dark);
+    background-color: var(--dark);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
   .contact-inner {
@@ -882,11 +841,7 @@
     margin-bottom: 1.25rem;
   }
 
-  .contact-heading em {
-    color: var(--amber);
-    font-style: normal;
-    display: block;
-  }
+  .contact-heading em { color: var(--amber); font-style: normal; display: block; }
 
   .contact-desc {
     font-size: 0.9rem;
@@ -897,11 +852,7 @@
     max-width: 400px;
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
 
   .contact-link {
     display: flex;
@@ -913,13 +864,8 @@
     transition: all 0.2s;
   }
 
-  .contact-link:first-child {
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-
-  .contact-link:hover {
-    padding-left: 0.5rem;
-  }
+  .contact-link:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+  .contact-link:hover { padding-left: 0.5rem; }
 
   .contact-link-label {
     font-family: var(--font-mono);
@@ -937,9 +883,7 @@
     transition: color 0.2s;
   }
 
-  .contact-link:hover .contact-link-value {
-    color: var(--amber);
-  }
+  .contact-link:hover .contact-link-value { color: var(--amber); }
 
   .contact-link-arrow {
     color: var(--mid);
@@ -947,9 +891,27 @@
     transition: transform 0.2s, color 0.2s;
   }
 
-  .contact-link:hover .contact-link-arrow {
+  .contact-link:hover .contact-link-arrow { color: var(--amber); transform: translate(4px, -4px); }
+
+  /* ── AWARD BADGE ── */
+  .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    background: var(--amber-glow);
+    border: 1px solid var(--amber-line);
+    margin-top: 1rem;
+  }
+
+  .award-badge-icon { font-size: 1rem; }
+
+  .award-badge-text {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
     color: var(--amber);
-    transform: translate(4px, -4px);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   /* ── FOOTER ── */
@@ -964,67 +926,25 @@
     justify-content: space-between;
   }
 
-  .footer-copy {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-
-  .footer-mark {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--amber);
-    letter-spacing: 0.1em;
-    opacity: 0.7;
-  }
+  .footer-copy { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em; }
+  .footer-mark { font-family: var(--font-mono); font-size: 0.65rem; color: var(--amber); letter-spacing: 0.1em; opacity: 0.7; }
 
   /* ── SCROLL ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Stagger delays for children */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
   .fade-up:nth-child(1) { transition-delay: 0.05s; }
   .fade-up:nth-child(2) { transition-delay: 0.1s; }
   .fade-up:nth-child(3) { transition-delay: 0.15s; }
   .fade-up:nth-child(4) { transition-delay: 0.2s; }
 
-  /* ── AWARD BADGE ── */
-  .award-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.5rem 1rem;
-    background: rgba(212,136,10,0.08);
-    border: 1px solid var(--amber-line);
-    margin-top: 1rem;
-  }
-
-  .award-badge-icon {
-    font-size: 1rem;
-  }
-
-  .award-badge-text {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--amber);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-resume { display: none; }
+    .nav-hamburger { display: flex; }
     #hero { padding: 7rem 1.5rem 3rem; }
+    .hero-corner.tr { display: none; }
     .section-inner { padding: 4rem 1.5rem; }
     .hero-stats { grid-template-columns: repeat(2, auto); gap: 2rem; }
     .thesis-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1038,6 +958,12 @@
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { grid-template-columns: repeat(2, auto); gap: 1.5rem; }
+    .hero-ctas { flex-direction: column; }
+    .skills-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -1054,7 +980,22 @@
     <li><a href="#life">Life</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="https://drive.google.com/file/d/1uS7PuvZ6ZcvtGFDEi8jyIaxUTA9T_DV6/view" target="_blank" class="nav-resume">Resume ↗</a>
+  <div class="nav-right">
+    <a href="https://drive.google.com/file/d/1uS7PuvZ6ZcvtGFDEi8jyIaxUTA9T_DV6/view" target="_blank" class="nav-resume">Resume ↗</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="nav-drawer" id="navDrawer">
+  <a href="#thesis" onclick="closeDrawer()">About</a>
+  <a href="#experience" onclick="closeDrawer()">Experience</a>
+  <a href="#projects" onclick="closeDrawer()">Projects</a>
+  <a href="#patents" onclick="closeDrawer()">Patents</a>
+  <a href="#life" onclick="closeDrawer()">Life</a>
+  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <a href="https://drive.google.com/file/d/1uS7PuvZ6ZcvtGFDEi8jyIaxUTA9T_DV6/view" target="_blank">Resume ↗</a>
 </nav>
 
 <!-- HERO -->
@@ -1062,7 +1003,7 @@
   <div class="hero-corner tl">x:0 y:0</div>
   <div class="hero-corner tr">Pittsburgh, PA</div>
   <div class="hero-corner bl">ML Engineer · Maker · Inventor</div>
-  <div class="hero-corner br">© 2025</div>
+  <div class="hero-corner br">© 2026</div>
   <div class="hero-bg-text">MAKER</div>
 
   <div class="hero-label">Available for the right problem</div>
@@ -1070,7 +1011,7 @@
   <h1 class="hero-name">Pranav<br><span>Kanuparthi</span></h1>
 
   <p class="hero-desc">
-    I build things that don't exist yet — patented sensor platforms, multi-agent AI systems, new ways to think about hard problems. My mission is <strong>building AGI</strong>: intelligent systems that understand, act, and work alongside people.
+    I build things that don't exist yet: patented sensor platforms, multi-agent AI systems, new ways to think about hard problems. My mission is <strong>building AGI</strong>: intelligent systems that understand, act, and work alongside people.
   </p>
 
   <div class="hero-tags">
@@ -1116,8 +1057,8 @@
     <div class="thesis-grid">
       <div>
         <p class="thesis-pull">The moonshot is the minimum bar, not the aspiration.</p>
-        <p class="thesis-body">At my core, I'm a maker. I get a kick out of building things that didn't exist before — and I've been doing it since I was 21 when I co-founded a startup and started filing patents. The best version of any problem is the one where you have to invent the solution.</p>
-        <p class="thesis-body">Nine years. One thread: making machines that genuinely understand their environment. I go from raw sensor hardware through signal processing, model architecture, and cloud deployment — without needing a handoff.</p>
+        <p class="thesis-body">At my core, I'm a maker. I get a kick out of building things that didn't exist before, and I've been doing it since I was 21 when I co-founded a startup and started filing patents. The best version of any problem is the one where you have to invent the solution.</p>
+        <p class="thesis-body">Nine years. One thread: making machines that genuinely understand their environment. I go from raw sensor hardware through signal processing, model architecture, and cloud deployment, with no handoff needed at any layer.</p>
         <div class="award-badge">
           <span class="award-badge-icon">🏆</span>
           <span class="award-badge-text">CES Innovation Award · YogiFi</span>
@@ -1127,7 +1068,7 @@
         <div class="trait-card fade-up">
           <span class="trait-icon">🛠️</span>
           <div class="trait-title">Builder First</div>
-          <div class="trait-sub">Sensor platforms, patents, production AI — the title changes but the instinct doesn't: if it doesn't exist, build it.</div>
+          <div class="trait-sub">Sensor platforms, patents, production AI, the title changes but the instinct doesn't: if it doesn't exist, build it.</div>
         </div>
         <div class="trait-card fade-up">
           <span class="trait-icon">🧭</span>
@@ -1142,7 +1083,7 @@
         <div class="trait-card fade-up">
           <span class="trait-icon">🔬</span>
           <div class="trait-title">First-Principles</div>
-          <div class="trait-sub">When existing approaches don't cut it, I design new ones. Five patents aren't a hobby — they're a habit.</div>
+          <div class="trait-sub">When existing approaches don't cut it, I design new ones. Five patents aren't a hobby: they're a habit.</div>
         </div>
         <div class="trait-card fade-up">
           <span class="trait-icon">🧱</span>
@@ -1173,7 +1114,7 @@
         <div class="exp-period">Sep 2021 – Present</div>
         <div class="exp-location">Pittsburgh, PA</div>
         <div class="exp-badge">Full-time · 3+ yrs</div>
-        <div class="exp-badge" style="margin-top: 0.35rem; background: rgba(0,200,100,0.1); color: #00d46a; border-color: rgba(0,200,100,0.35);">Formerly Qeexo</div>
+        <div class="exp-badge green">Formerly Qeexo</div>
       </div>
       <div class="exp-content">
         <div class="exp-role">Senior Machine Learning Engineer</div>
@@ -1200,7 +1141,7 @@
         <div class="exp-badge">Research · 8 mos</div>
       </div>
       <div class="exp-content">
-        <div class="exp-role">Graduate Research Assistant — Neuromorphic Computer Architecture Lab</div>
+        <div class="exp-role">Graduate Research Assistant, Neuromorphic Computer Architecture Lab</div>
         <ul class="exp-bullets">
           <li>Developed Temporal Neural Network (TNN) architectures for Keyword Spotting and time-series classification using PyTorch, targeting Neuromorphic Sensory Processing Units.</li>
           <li>Achieved <strong>73% accuracy on Spoken MNIST</strong> under strict neuromorphic power constraints.</li>
@@ -1220,7 +1161,7 @@
         <div class="exp-badge">Co-Founder · CIO</div>
       </div>
       <div class="exp-content">
-        <div class="exp-role">Co-Founder & Chief Innovation Officer</div>
+        <div class="exp-role">Co-Founder &amp; Chief Innovation Officer</div>
         <ul class="exp-bullets">
           <li>Built <strong>YogiFi</strong>, a CES Innovation Award-winning patented AI and pressure sensor platform for real-time yoga pose classification and personalised guidance. Led a twelve-member cross-functional team.</li>
           <li>Engineered CNN on pressure matrix data achieving <strong>98% pose classification accuracy</strong>; technology underpins 3 granted patents.</li>
@@ -1312,9 +1253,8 @@
       <div class="patents-count">
         <div class="patents-big-num">5</div>
         <div class="patents-sub">Patents Filed</div>
-        <br>
-        <div class="patents-sub" style="margin-top: 1rem; color: #00d46a;">3 Granted</div>
-        <div class="patents-sub" style="color: var(--amber); margin-top: 0.25rem;">2 Pending</div>
+        <div class="patents-granted-label">3 Granted</div>
+        <div class="patents-pending-label">2 Pending</div>
       </div>
       <div class="patent-list">
 
@@ -1358,16 +1298,16 @@
           </div>
         </div>
 
-        <div class="patent-item" style="border-top-color: rgba(212,136,10,0.2);">
-          <span class="patent-status" style="background: rgba(180,180,180,0.07); color: var(--faint); border-color: rgba(255,255,255,0.1);">Talk</span>
+        <div class="patent-item talk-row">
+          <span class="patent-status talk">Talk</span>
           <div>
-            <div class="patent-title">Embedded ML for Industrial IoT Applications — ARM DevSummit 2024</div>
-            <div class="patent-num"><a href="https://brighttalk.com/webcast/17792/598483" target="_blank" style="color: var(--amber); text-decoration: none;">↗ Watch presentation</a></div>
+            <div class="patent-title">Embedded ML for Industrial IoT Applications, ARM DevSummit 2024</div>
+            <div class="patent-num"><a href="https://brighttalk.com/webcast/17792/598483" target="_blank">↗ Watch presentation</a></div>
           </div>
         </div>
 
         <div class="patent-item">
-          <span class="patent-status" style="background: rgba(180,180,180,0.07); color: var(--faint); border-color: rgba(255,255,255,0.1);">Paper</span>
+          <span class="patent-status paper">Paper</span>
           <div>
             <div class="patent-title">The Changing Nature of Human Adjudication</div>
             <div class="patent-num">ITSMTGPD 2019 · IEEE Technology and Society Magazine</div>
@@ -1387,7 +1327,7 @@
     <div class="section-label" data-num="04">Beyond the Terminal</div>
     <h2 class="section-title">The Maker Doesn't Switch Off</h2>
     <div class="life-intro">
-      <p class="life-body">The same instinct that makes me build software also puts me on a sailboat or at a shooting range. A maker doesn't switch off — they just find new problems to solve.</p>
+      <p class="life-body">The same instinct that makes me build software also puts me on a sailboat or at a shooting range. A maker doesn't switch off: they just find new problems to solve.</p>
     </div>
 
     <div class="life-grid">
@@ -1395,22 +1335,22 @@
         <span class="life-card-icon">⛵</span>
         <div class="life-card-title">On the Water</div>
         <div class="life-card-sub">US Sailing Certified · Sailor</div>
-        <p class="life-card-desc">Reading wind, water, and weather in real time. There's no undo button — same as a hard engineering problem. You work with what the environment gives you.</p>
+        <p class="life-card-desc">Reading wind, water, and weather in real time. There's no undo button, same as a hard engineering problem. You work with what the environment gives you.</p>
         <div class="life-card-num">01</div>
       </div>
 
       <div class="life-card">
         <span class="life-card-icon">🏎️</span>
         <div class="life-card-title">Motorsport</div>
-        <div class="life-card-sub">Speed & Engineering</div>
-        <p class="life-card-desc">Machines pushed to their limits. Half the fascination is the engineering underneath — systems optimized to the edge of what's physically possible.</p>
+        <div class="life-card-sub">Speed &amp; Engineering</div>
+        <p class="life-card-desc">Machines pushed to their limits. Half the fascination is the engineering underneath: systems optimized to the edge of what's physically possible.</p>
         <div class="life-card-num">02</div>
       </div>
 
       <div class="life-card">
         <span class="life-card-icon">🎯</span>
         <div class="life-card-title">Sporting Clays</div>
-        <div class="life-card-sub">Focus & Timing</div>
+        <div class="life-card-sub">Focus &amp; Timing</div>
         <p class="life-card-desc">Every target is a slightly different problem. You can't fake preparation and you can't think too much. Total presence, every time.</p>
         <div class="life-card-num">03</div>
       </div>
@@ -1418,8 +1358,8 @@
       <div class="life-card">
         <span class="life-card-icon">🥊</span>
         <div class="life-card-title">Boxing</div>
-        <div class="life-card-sub">Discipline & Craft</div>
-        <p class="life-card-desc">Footwork, timing, controlled aggression under pressure. The gym teaches you that preparation isn't optional — it's the whole game.</p>
+        <div class="life-card-sub">Discipline &amp; Craft</div>
+        <p class="life-card-desc">Footwork, timing, controlled aggression under pressure. The gym teaches you that preparation isn't optional: it's the whole game.</p>
         <div class="life-card-num">04</div>
       </div>
     </div>
@@ -1460,7 +1400,7 @@
         </ul>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Cloud & Infra</div>
+        <div class="skill-group-title">Cloud &amp; Infra</div>
         <ul class="skill-list">
           <li>AWS Bedrock</li>
           <li>Lambda · S3 · DynamoDB</li>
@@ -1488,8 +1428,8 @@
       <div>
         <div class="section-label" data-num="06">Let's Talk</div>
         <h2 class="contact-heading">Let's build<br><em>something 10×.</em></h2>
-        <p class="contact-desc">Looking for senior ML and agentic AI roles where the problem is hard, the stakes are real, and the solution doesn't exist yet. If that's what you're building — let's talk.</p>
-        <a href="mailto:pranavkanuparthi@gmail.com" class="btn-primary">Send a Message</a>
+        <p class="contact-desc">Looking for senior ML and agentic AI roles where the problem is hard, the stakes are real, and the solution doesn't exist yet. If that's what you're building, let's talk.</p>
+        <a href="#" data-email class="btn-primary">Send a Message</a>
       </div>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/pranavkanuparthi/" target="_blank" class="contact-link">
@@ -1519,31 +1459,46 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-copy">© 2025 Pranav Kanuparthi · Pittsburgh, PA</span>
+  <span class="footer-copy">© 2026 Pranav Kanuparthi · Pittsburgh, PA</span>
   <span class="footer-mark">Senior ML Engineer · Maker · Inventor</span>
 </footer>
 
 <script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navDrawer = document.getElementById('navDrawer');
+  hamburger.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+  });
+  function closeDrawer() {
+    navDrawer.classList.remove('open');
+    hamburger.classList.remove('open');
+  }
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navDrawer.contains(e.target)) closeDrawer();
+  });
+
+  // Email obfuscation
+  const _eu = 'pranavkanuparthi', _ed = 'gmail.com';
+  document.querySelectorAll('[data-email]').forEach(el => {
+    el.href = 'mailto:' + _eu + '@' + _ed;
+  });
+
   // Scroll fade-up animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Smooth active nav
+  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : '';
     });
