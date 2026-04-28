@@ -34,7 +34,6 @@
 
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 9999; }
 
     /* ── NAV ── */
     nav {
@@ -93,7 +92,9 @@
       min-height: 100vh;
       display: grid; grid-template-columns: 1fr 1fr;
       padding-top: calc(var(--nav-h) + var(--banner-h));
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
       position: relative; overflow: hidden;
     }
     .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse 90% 80% at 65% 45%, black 20%, transparent 80%); opacity: 0.5; }
@@ -309,7 +310,7 @@
     .life-quote-sub strong { color: var(--text-dim); font-weight: 400; }
 
     /* ── CONTACT ── */
-    #contact { background: var(--bg); position: relative; overflow: hidden; }
+    #contact { background-color: var(--bg); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 24px 24px; position: relative; overflow: hidden; }
     .contact-glow { position: absolute; left: -80px; top: 50%; transform: translateY(-50%); width: 480px; height: 480px; background: radial-gradient(circle, rgba(255,40,0,0.04) 0%, transparent 65%); pointer-events: none; }
     .contact-pre { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; position: relative; }
     .contact-pre::before { content: ''; width: 28px; height: 1px; background: var(--blue); }
