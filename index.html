@@ -160,6 +160,7 @@
       linear-gradient(var(--grid) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid) 1px, transparent 1px);
     background-size: 24px 24px;
+    background-position: center top;
   }
 
   .hero-label {
@@ -314,7 +315,7 @@
   section { position: relative; z-index: 1; }
 
   .section-inner {
-    max-width: 1100px;
+    max-width: 1104px;
     margin: 0 auto;
     padding: 6rem 3rem;
   }
@@ -823,6 +824,7 @@
       linear-gradient(var(--grid) 1px, transparent 1px),
       linear-gradient(90deg, var(--grid) 1px, transparent 1px);
     background-size: 24px 24px;
+    background-position: center top;
   }
 
   .contact-inner {
@@ -855,13 +857,13 @@
   .contact-links { display: flex; flex-direction: column; gap: 0; }
 
   .contact-link {
-    display: flex;
+    display: grid;
+    grid-template-columns: 10rem 1fr 1.5rem;
     align-items: center;
-    justify-content: space-between;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0,0,0,0.08);
     text-decoration: none;
-    transition: all 0.2s;
+    transition: padding-left 0.2s;
   }
 
   .contact-link:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
@@ -888,6 +890,7 @@
   .contact-link-arrow {
     color: var(--mid);
     font-size: 1rem;
+    text-align: right;
     transition: transform 0.2s, color 0.2s;
   }
 
@@ -964,6 +967,63 @@
     .hero-stats { grid-template-columns: repeat(2, auto); gap: 1.5rem; }
     .hero-ctas { flex-direction: column; }
     .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  @media (pointer: fine) {
+    * { cursor: none !important; }
+    #cursor { display: block; }
+  }
+
+  #cursor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .cursor-cross {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+  }
+
+  .cursor-cross::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background: var(--amber);
+    top: 9px;
+    left: 0;
+  }
+
+  .cursor-cross::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background: var(--amber);
+    left: 9px;
+    top: 0;
+  }
+
+  .cursor-coords {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--amber);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    line-height: 1;
+    opacity: 0.75;
   }
 </style>
 </head>
@@ -1457,6 +1517,12 @@
   </div>
 </section>
 
+<!-- CUSTOM CURSOR -->
+<div id="cursor">
+  <div class="cursor-cross"></div>
+  <span class="cursor-coords" id="cursorCoords">0, 0</span>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 Pranav Kanuparthi · Pittsburgh, PA</span>
@@ -1503,6 +1569,17 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : '';
     });
   });
+
+  // Custom cursor
+  const cursorEl = document.getElementById('cursor');
+  const coordsEl = document.getElementById('cursorCoords');
+  document.addEventListener('mousemove', (e) => {
+    cursorEl.style.left = e.clientX + 'px';
+    cursorEl.style.top = e.clientY + 'px';
+    cursorEl.style.opacity = '1';
+    coordsEl.textContent = e.clientX + ', ' + e.clientY;
+  });
+  document.addEventListener('mouseleave', () => { cursorEl.style.opacity = '0'; });
 </script>
 </body>
 </html>
