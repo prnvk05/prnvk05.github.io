@@ -1,0 +1,234 @@
+{
+  "articles": [
+    {
+      "slug": "designing-a-modular-rov",
+      "title": "Designing a modular, 3D-printable ROV",
+      "category": "Mechanical design",
+      "summary": "How a finite printer envelope shaped Stingray’s wing and chassis architecture.",
+      "sections": [
+        [
+          "The design constraint",
+          "Stingray is a stingray-inspired underwater robot concept. The first prototype is intended to be printable on my Bambu Lab A1, which has a 256 × 256 × 256 mm build volume. Full-size body and wing geometry must therefore be split into manageable segments."
+        ],
+        [
+          "Designing for assembly",
+          "The mechanical plan uses built-in attachment features to avoid post-print drilling, separate upper and lower body sections, and dedicated space for electronics. A previously generated parts manifest records candidate pieces inside the printer envelope. A bounding-box check is not evidence of slicer fit, joint strength or assembly accuracy."
+        ],
+        [
+          "What comes next",
+          "I will measure representative joints and verify fit before committing to full-size assemblies. Mechanical design, buoyancy, sealing and structural verification remain separate milestones."
+        ]
+      ]
+    },
+    {
+      "slug": "material-selection",
+      "title": "PETG, PETG-CF and the reality of prototyping",
+      "category": "Manufacturing",
+      "summary": "Material selection is a trade-off between repeatability, print quality and eventual performance.",
+      "sections": [
+        [
+          "A practical baseline",
+          "I initially explored carbon-fiber-filled PETG, using a 0.6 mm hardened-steel nozzle as the current printer baseline. Earlier experiments with PETG-CF produced stringing and quality issues. Regular PETG gave better qualitative results and became the practical prototype material."
+        ],
+        [
+          "A new failure mode",
+          "The November wing-print failures were in regular PETG. The photographs show defects concentrated around supported features; the cause is still under investigation. This matters because changing filament alone does not establish a reliable manufacturing process."
+        ],
+        [
+          "A measured approach",
+          "Future trials will preserve the slicer profile, orientation, filament, support geometry, print time, waste and dimensions. Small coupons can isolate variables before repeating a much larger print. No material has yet been validated for the intended underwater application."
+        ]
+      ]
+    },
+    {
+      "slug": "electronics-architecture",
+      "title": "Planning the onboard electronics",
+      "category": "Electronics",
+      "summary": "A proposed Raspberry Pi and Blue Robotics control architecture under a prototype budget.",
+      "sections": [
+        [
+          "Architecture",
+          "The intended architecture uses a Raspberry Pi as the onboard computer and a Blue Robotics controller. The control and compute hardware must fit within the mechanical design, along with power electronics, wiring and protected enclosures."
+        ],
+        [
+          "Budget and trade-offs",
+          "I set an approximate $800 prototype budget during the initial electronics planning. That is a target, not a documented purchase total. It will guide the bill of materials and prioritization of essential functions."
+        ],
+        [
+          "Verification gates",
+          "Exact component models, wiring, enclosure geometry, power budget and propulsion configuration still need confirmation. Bench and leak testing must precede any powered underwater trials."
+        ]
+      ]
+    },
+    {
+      "slug": "marine-cleanup-mission",
+      "title": "Prototype first: an underwater robot for marine cleanup",
+      "category": "Project direction",
+      "summary": "The environmental purpose behind Stingray and the path from prototype to a potential cleanup service.",
+      "sections": [
+        [
+          "Mission",
+          "Stingray begins with a simple ambition: develop robotic tools that can contribute to a cleaner marine environment. An eventual service model, rather than selling robots, is the direction I am exploring."
+        ],
+        [
+          "Prototype before business",
+          "The immediate goal is to build and test a functioning prototype. A capable vehicle, a safe deployment method and a measurable debris-recovery task must come before any commercial claims."
+        ],
+        [
+          "Longer-term exploration",
+          "A separate ocean-exploration submersible is a longer-term idea. For now, the engineering journal will record experiments, successes, setbacks and decisions as the prototype develops."
+        ]
+      ]
+    }
+  ],
+  "logs": [
+    {
+      "slug": "2026-09-11-mechanical-design",
+      "date": "2026-09-11",
+      "title": "Mechanical design constraints",
+      "category": "Mechanical design",
+      "status": "Design",
+      "summary": "Established the printer envelope, modular joints and electronics packaging requirements.",
+      "sections": [
+        [
+          "Activity",
+          "Defined the design constraint of 256 × 256 × 256 mm for every printable part. Requested modular segmentation, built-in fasteners instead of drilling, and room for electronics."
+        ],
+        [
+          "Result",
+          "The project has a manufacturing and assembly direction; tolerances, joint strength and service access remain unverified."
+        ],
+        [
+          "Next",
+          "Print representative joint geometry and check fit against the actual electronics dimensions."
+        ]
+      ]
+    },
+    {
+      "slug": "2026-09-15-electronics-budget",
+      "date": "2026-09-15",
+      "title": "Electronics and budget scope",
+      "category": "Electronics",
+      "status": "Planning",
+      "summary": "Set a lower-cost prototype target and identified the intended control stack.",
+      "sections": [
+        [
+          "Activity",
+          "Requested a purchase list and technical specification for a lower-cost prototype."
+        ],
+        [
+          "Result",
+          "A target of approximately $800 was accepted; Raspberry Pi and Blue Robotics represent the intended architecture. Purchases and exact models are unconfirmed."
+        ],
+        [
+          "Next",
+          "Resolve component part numbers, actual costs, dimensions, wiring and power requirements."
+        ]
+      ]
+    },
+    {
+      "slug": "2026-09-21-mission",
+      "date": "2026-09-21",
+      "title": "A mission for marine cleanup",
+      "category": "Project direction",
+      "status": "Decision",
+      "summary": "Opted for prototype-first development with a potential service-led cleanup mission.",
+      "sections": [
+        [
+          "Activity",
+          "Considered using Stingray for ocean debris collection as a service, not robot sales."
+        ],
+        [
+          "Result",
+          "The initial objective is to prototype for environmental benefit. A separate underwater exploration vehicle remains a future direction."
+        ],
+        [
+          "Next",
+          "Define a narrow first operational use case and measurable acceptance criteria."
+        ]
+      ]
+    },
+    {
+      "slug": "2026-11-17-filament-experience",
+      "date": "2026-11-17",
+      "title": "PETG-CF versus regular PETG",
+      "category": "Manufacturing",
+      "status": "Observation",
+      "summary": "Retrospective: earlier PETG-CF trials showed stringing and quality problems; regular PETG performed better.",
+      "sections": [
+        [
+          "Activity",
+          "Retrospective manufacturing note; the exact dates of the original prints are not recorded."
+        ],
+        [
+          "Observation",
+          "Carbon-fiber-filled PETG had qualitative printing issues, including stringing. Regular PETG performed better in earlier attempts. A 0.6 mm hardened-steel nozzle is installed as the current baseline."
+        ],
+        [
+          "Next",
+          "Record the actual printing profiles, filament preparation, geometry, photos and internally consistent test results."
+        ]
+      ]
+    },
+    {
+      "slug": "2026-11-17-composite-molds",
+      "date": "2026-11-17",
+      "title": "Considering composite fabrication",
+      "category": "Mechanical design",
+      "status": "Exploration",
+      "summary": "Investigating molds for fiberglass or carbon-fiber parts as an alternative manufacturing approach.",
+      "sections": [
+        [
+          "Activity",
+          "Retrospective note on considering a mold-based approach for producing composite parts."
+        ],
+        [
+          "Result",
+          "Fiberglass and carbon fiber are options for evaluation; no manufacturing change has been approved or validated."
+        ],
+        [
+          "Next",
+          "Compare a representative fairing by print-based and mold-based approaches, assessing surface finish, cost, structure and sealing."
+        ]
+      ]
+    },
+    {
+      "slug": "2026-11-18-petg-wing-failure",
+      "date": "2026-11-18",
+      "title": "Failed prints: PETG wing segment",
+      "category": "Manufacturing",
+      "status": "Failed",
+      "summary": "Photographic evidence of a rejected regular-PETG wing print, with defects concentrated around supported features.",
+      "sections": [
+        [
+          "Activity",
+          "Documented rejected Stingray wing-segment prints in regular PETG. The date is the date of this log; exact print dates and slicer profiles are not yet confirmed."
+        ],
+        [
+          "Observations",
+          "A mostly formed panel with mounting tabs is visible, alongside a rough supported edge, loose filament and incomplete-looking local geometry. Several tree-support branches are detached, but the photographs cannot establish whether they broke during printing or afterward."
+        ],
+        [
+          "Working hypothesis",
+          "The support and overhang region is the first area to investigate. Support contact, motion, bridging or extrusion may be involved; none is confirmed. This regular-PETG failure is distinct from earlier PETG-CF print-quality issues."
+        ],
+        [
+          "Decision and next experiment",
+          "Reject the affected parts for assembly. Capture the exact segment identifier, nozzle, orientation and slicer settings. Test representative wing geometry with one variable changed at a time, and record print time, material waste and dimensional results."
+        ]
+      ],
+      "photos": [
+        {
+          "file": "wing-print-detail.webp",
+          "alt": "White PETG wing segment with mounting tabs, rough supported edge, loose filament and detached tree supports",
+          "caption": "Failed wing segment: defects around the supported edge."
+        },
+        {
+          "file": "wing-print-discarded.webp",
+          "alt": "Discarded white prototype print sections and tree supports in a container",
+          "caption": "Rejected prints and support material."
+        }
+      ]
+    }
+  ]
+}
