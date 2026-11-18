@@ -74,7 +74,7 @@
 
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: clamp(0.8rem, 2vw, 2.5rem);
     list-style: none;
   }
 
@@ -1038,6 +1038,7 @@
     <li><a href="#thesis">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="/blog/">Blog</a></li>
     <li><a href="#patents">Patents</a></li>
     <li><a href="#life">Life</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1054,6 +1055,7 @@
   <a href="#thesis" onclick="closeDrawer()">About</a>
   <a href="#experience" onclick="closeDrawer()">Experience</a>
   <a href="#projects" onclick="closeDrawer()">Projects</a>
+  <a href="/blog/" onclick="closeDrawer()">Blog</a>
   <a href="#patents" onclick="closeDrawer()">Patents</a>
   <a href="#life" onclick="closeDrawer()">Life</a>
   <a href="#contact" onclick="closeDrawer()">Contact</a>
