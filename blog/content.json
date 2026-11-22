@@ -229,6 +229,39 @@
           "caption": "Rejected prints and support material."
         }
       ]
+    },
+    {
+      "slug": "2026-11-21-spaghetti-failure-print-preparation",
+      "date": "2026-11-21",
+      "title": "Recurring print failures: refining print preparation",
+      "category": "Manufacturing",
+      "status": "Failed",
+      "summary": "Repeated spaghetti failures prompted a new build-plate cleaning routine and the purchase of a spool dryer.",
+      "sections": [
+        [
+          "Activity",
+          "After multiple unsuccessful Stingray prints like the one photographed here, I started washing the build plate with soap before each print and purchased a spool dryer to improve print quality."
+        ],
+        [
+          "Observations",
+          "The photograph shows one example of a recurring failure: a partly formed white curved component beside a large mass of loose extruded filament, commonly described as a spaghetti failure. The exact failure count, component, material, settings and layer at failure are not yet recorded."
+        ],
+        [
+          "Process improvements",
+          "Routine plate cleaning and the purchase of a spool dryer followed the repeated failures. The dryer’s settings, use and effectiveness have not yet been established. Neither corrective action has yet been validated by documented successful repeat prints."
+        ],
+        [
+          "Working hypothesis and next experiment",
+          "The failure is consistent with extrusion continuing after loss of part or support stability. Bed adhesion, support failure and filament condition are possible factors, not confirmed causes. Record the exact part and material, first-layer result, drying conditions and failure layer. Repeat a representative test while changing one variable at a time."
+        ]
+      ],
+      "photos": [
+        {
+          "file": "2026-11-21-spaghetti-print.webp",
+          "alt": "Partially formed white curved print beside a large tangle of loose white filament",
+          "caption": "Another failed Stingray print, documented November 21: loose filament surrounding a partly formed component."
+        }
+      ]
     }
   ]
 }
